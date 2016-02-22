@@ -11,10 +11,12 @@
 <h3 id="winCounter"></br>Wins:0 </br></h3>
 <h3 id="lossCounter"></br> Losses:0</h3>
 
+<div id="crystals">
 <img id="img1"src="/Users/Leslie/week-4-game/assets/images/red.png">
 <img id="img2" src="/Users/Leslie/week-4-game/assets/images/blue.png">
 <img id="img3" src="/Users/Leslie/week-4-game/assets/images/yellow.png">
 <img id="img4"src="/Users/Leslie/week-4-game/assets/images/green.png">
+</div>
 
 <h4 id="totalScore">Your total score is: </h4>
 <h4 id="scoreNumber">0</h4>
@@ -24,18 +26,27 @@
 
 <script type="text/javascript"src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script type="text/javascript"> 
+
+$('document').ready(function(){start();
+});
+
 var winCounter = 0;
 var lossCounter = 0;
+//var randomNumer:[];
 
+function start(){
 $('#img1').click(function(){alert(Math.floor(Math.random()*(12-1+1))+1);})
 $('#img2').click(function(){alert(Math.floor(Math.random()*(12-1+1))+1);})
 $('#img3').click(function(){alert(Math.floor(Math.random()*(12-1+1))+1);})
 $('#img4').click(function(){alert(Math.floor(Math.random()*(12-1+1))+1);})
 $('#randomNumber').click(function(){alert(Math.floor(Math.random()*120-18+1)+18);})
-$('#img1').push('scoreNumer');
-//if("#img1"+"#img2"+"#img3"+"#img4")
+};
+
+function check(answer){}
+//if(#img1'+'#img2'+'#img3'+'#img4")
 
 //function roundComplete(){console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + );}
+
 
 
 </script>
