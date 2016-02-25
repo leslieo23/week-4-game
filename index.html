@@ -1,7 +1,9 @@
 <!Doctype Html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/Users/Leslie/week-4-game/crystal.css">	
+<link rel="stylesheet" type="text/css" href="/Users/Leslie/week-4-game/crystal.css">
+<link href='https://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>	
+
 </head>
 <body>
 <h1 id="title">Crystals Collector!</h1>
@@ -9,8 +11,8 @@
  You will given a random number at the start of the game.</br> There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</br></br> You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</br></br> The value of each crystal is hidden from you until you click on it</br>
 </h2>	
 <h2 id="randomNumber"></h2>
-<h3 id="winCounter"></br>Wins </br></h3>
-<h3 id="lossCounter"></br> Losses</h3>
+<h3 id="winCounter"></br>Wins: </br></h3>
+<h3 id="lossCounter"></br> Losses:</h3>
 
 <div id="crystals">
 <img id="img1"src="/Users/Leslie/week-4-game/assets/images/red.png">
@@ -21,59 +23,99 @@
 
 <h3 id="totalScore">Your total score is: </h3>
 <h4 id="scoreNumber">0</h4>
+<footer>Leslie Obour (c)2016 Rutgers Coding Bootcamp</footer>
 
 </body>
 
 
 <script type="text/javascript"src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script type="text/javascript"> 
+//variables
+	var winCount = 0;
+	var lossCount = 0;
+	var randomNumber=[];
+	var scoreNumber=0;
+	var crystals=[];
+	//how the game starts
+	function startGame(){
+		winCount=0;
+		lossCount=0;
+		randomNumber=0;
+		//randomNumber.push(Math.floor(Math.random()*120-18+1)+18);
+		scoreNumber=0;
+		crystals=[];
+		crystals.push(Math.floor(Math.random()*(12-1+1))+1);
+		crystals.push(Math.floor(Math.random()*(12-1+1))+1);
+		crystals.push(Math.floor(Math.random()*(12-1+1))+1);
+		crystals.push(Math.floor(Math.random()*(12-1+1))+1);
+		
+		console.log(crystals);
+		console.log(randomNumber);
+	
+}
+	
+	//getting values of each click displayed on scoreNumber
+	$('#img1').click(function(){
+		$("h4").html(scoreNumber=scoreNumber+crystals[0]);
+	});
+	$('#img2').click(function(){
+		$("h4").html(scoreNumber=scoreNumber+crystals[1]);
+	});
+	$('#img3').click(function(){
+		$("h4").html(scoreNumber=scoreNumber+crystals[2]);
+	});
+	$('#img4').click(function(){
+		$("h4").html(scoreNumber=scoreNumber+crystals[3]);
+	});
+	$('#randomNumber').html(Math.floor(Math.random()*120-18+1)+18);
+	
+	//setting wins and losses to 0
+	document.getElementById("winCounter").innerHTML=winCount;
+	document.getElementById("lossCounter").innerHTML=lossCount;
+	console.log(winCount);
+	console.log(lossCount);
+	//document.getElementById("").innerHTML=scoreNumber;
 
+	//trying add numbers from images together(attempt)
+	var theResult = parseInt( $("div").value ) + parseInt( $("div").value );
+	$("#scoreNumber").text(theResult);
+	
+	console.log(theResult);
+	console.log(randomNumber);
 
+	function roundComplete(){
 
-var winCount = 0;
-var lossCount = 0;
-var randomNumer=[];
-var scoreNumber=0;
-var crystals=[];
-function startGame(){
-	winCount=0;
-	lossCount=0;
-	randomNumber=[];
-	scoreNumber=0;
-	crystals=[];
-};
+	console.log("winCount: " + winCounter + " | lossCount: " + lossCounter );	
+	console.log(crystals);
+	// check if user won
+	if (scoreNumber == randomNumber)
+		{winCount++;
+	 
+	 alert('You Win!');
+	
+	document.getElementById("winCounter").innerHTML=winCount;
+	
+	startGame();
+	}
+	
+	console.log(winCount);
+	 
+	if(scoreNumber > randomNumber){
+		
+		lossCount++;
+		
+		alert("You lose");
+	
+		document.getElementById("lossCounter").innerHTML=lossCount;
+	
+	startGame();
+	}
+}
+	
+	
+	console.log(lossCount);
 
-
-//getting values of each click displayed on scoreNumber
-$('#img1').click(function(){$("h4").html(Math.floor(Math.random()*(12-1+1))+1);})
-$('#img2').click(function(){$("h4").html(Math.floor(Math.random()*(12-1+1))+1);})
-$('#img3').click(function(){$("h4").html(Math.floor(Math.random()*(12-1+1))+1);})
-$('#img4').click(function(){$("h4").html(Math.floor(Math.random()*(12-1+1))+1);})
-
-$('#randomNumber').html(Math.floor(Math.random()*120-18+1)+18);
-//setting win loss equal to 0
-document.getElementById("winCounter").innerHTML=winCount;
-document.getElementById("lossCounter").innerHTML=lossCount;
-//document.getElementById("").innerHTML=scoreNumber;
-
-//trying add numbers from images together(attempt)
-var theResult= $("#img1").value+ $("#img2").value;
-$("#scoreNumber").text(theResult);
-console.log(theResult);
- 
-
-
-
-console.log(randomNumber);
-
-startGame();
-//register mouse clicks
-//document.onclick=function(event){var crystalsGuesed=string.fromCharCode(event.keyCode).to}
-//function check(answer){}
-//if(#img1'+'#img2'+'#img3'+'#img4")
-
-//function roundComplete(){console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + );}
-
-
+roundComplete();
 
 </script>
+</html>

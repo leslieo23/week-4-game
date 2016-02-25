@@ -6,15 +6,20 @@ width:175px;
 height:100px;
 color:white;
 text-align:center;
-background-position:center;}
+background-position:center;
+font-family:'Marck Script', cursive;
+margin-left:550px;}
 
 
-#instructions{background-color:#D9CEC5;
-margin-right:300px;
-padding:20px;}
+#instructions{background-color:gray;
+margin-left:100px;
+padding:20px;
+text-align:center;
+font-size:15px;
+border:1px solid black;}
 
 #randomNumber{background-color:#8CCEDF;
-margin-right:800px;
+margin-right:900px;
 height:120px; }
 
 #lossCounter{background-color:#D8214C;
@@ -38,7 +43,7 @@ margin-right:900px;
 height:150px;
 color:white;}
 
-#crystals{background-color:#353E55;
+#crystals{
 margin-right:800px;
 height:100px;}
 #img1{width:40px;
@@ -48,4 +53,7 @@ height:100px;}
 #img3{width:60px;}
 
 #img4{height:70px;}
-
+footer{
+	text-align:center;
+	font-size:10px;
+}
