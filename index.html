@@ -33,21 +33,21 @@
 //variables
 	var winCount = 0;
 	var lossCount = 0;
-	var randomNumber=[];
+	var randomNumber=0;
 	var scoreNumber=0;
 	var crystals=[];
 	//how the game starts
 	function startGame(){
-		winCount=0;
-		lossCount=0;
-		randomNumber=0;
-		//randomNumber.push(Math.floor(Math.random()*120-18+1)+18);
+		// winCount=0;
+		// lossCount=0;
+		randomNumber=(Math.floor(Math.random()*120-19+1)+19);
+		$('#randomNumber').html(randomNumber);
 		scoreNumber=0;
 		crystals=[];
-		crystals.push(Math.floor(Math.random()*(12-1+1))+1);
-		crystals.push(Math.floor(Math.random()*(12-1+1))+1);
-		crystals.push(Math.floor(Math.random()*(12-1+1))+1);
-		crystals.push(Math.floor(Math.random()*(12-1+1))+1);
+		crystals.push(Math.floor(Math.random()*(12-1+1)+1));
+		crystals.push(Math.floor(Math.random()*(12-1+1)+1));
+		crystals.push(Math.floor(Math.random()*(12-1+1)+1));
+		crystals.push(Math.floor(Math.random()*(12-1+1)+1));
 		
 		console.log(crystals);
 		console.log(randomNumber);
@@ -56,18 +56,18 @@
 	
 	//getting values of each click displayed on scoreNumber
 	$('#img1').click(function(){
-		$("h4").html(scoreNumber=scoreNumber+crystals[0]);
+		$("h4").html(scoreNumber=scoreNumber+crystals[0]); roundComplete();
 	});
 	$('#img2').click(function(){
-		$("h4").html(scoreNumber=scoreNumber+crystals[1]);
+		$("h4").html(scoreNumber=scoreNumber+crystals[1]); roundComplete();
 	});
 	$('#img3').click(function(){
-		$("h4").html(scoreNumber=scoreNumber+crystals[2]);
+		$("h4").html(scoreNumber=scoreNumber+crystals[2]); roundComplete();
 	});
 	$('#img4').click(function(){
-		$("h4").html(scoreNumber=scoreNumber+crystals[3]);
+		$("h4").html(scoreNumber=scoreNumber+crystals[3]); roundComplete();
 	});
-	$('#randomNumber').html(Math.floor(Math.random()*120-18+1)+18);
+
 	
 	//setting wins and losses to 0
 	document.getElementById("winCounter").innerHTML=winCount;
@@ -86,9 +86,10 @@
 	function roundComplete(){
 
 	console.log("winCount: " + winCounter + " | lossCount: " + lossCounter );	
-	console.log(crystals);
+	
+	
 	// check if user won
-	if (scoreNumber == randomNumber)
+	if(scoreNumber == randomNumber)
 		{winCount++;
 	 
 	 alert('You Win!');
@@ -104,18 +105,20 @@
 		
 		lossCount++;
 		
-		alert("You lose");
+		alert('You lose');
 	
 		document.getElementById("lossCounter").innerHTML=lossCount;
 	
 	startGame();
-	}
 }
+console.log(lossCount);
+	}
 	
 	
-	console.log(lossCount);
 
-roundComplete();
 
+
+
+startGame();
 </script>
 </html>
